@@ -17,14 +17,38 @@
             document.getElementById("haha1").innerHTML = text;
         }
 
-        let submitName = function () {
-            var name = document.getElementById("fname").value;
+        let appendUL = function(ul, content) {
             var li = document.createElement("li");
-            li.appendChild(document.createTextNode(name));
-            list_names.push(new pupil(name))
-            document.getElementById("names").appendChild(
+            li.appendChild(document.createTextNode(content));
+            document.getElementById(ul).appendChild(
                 li
             );
+        }
+
+        let submitName = function () {
+            var name = document.getElementById("fname").value;
+            appendUL("names", name)
+            list_names.push(new pupil(name))
+        }
+
+        const rand = (length) => {return Math.floor(Math.random() * length)};
+        
+
+        let generate = function ()  {
+            if (list_names.length % 2 == 1) {
+                var random = rand(list_names.length)
+                var leftover = list_names[random]
+                document.getElementById("leftover").innerHTML = "Leftover: " + leftover.name;
+                list_names = list_names.filter((item) => {return item != leftover})
+            }
+            while (list_names.length >= 2) {
+                var a = list_names[rand(list_names.length)]
+                list_names = list_names.filter((item) => {return item != a})
+                var b = list_names[rand(list_names.length)]
+                list_names = list_names.filter((item) => {return item != b})
+                
+                appendUL("combs", (a.name + " and " + b.name))
+            }
         }
     </script>
 
@@ -43,5 +67,13 @@
         <ul id="names">
 
         </ul>
+        <br>
+        <br>
+        <button onclick="generate()">Generate combinations</button>
+        <br>
+        <br>
+        <h4>combinations</h4>
+        <p id="leftover"></p><br>
+        <ul id="combs"></ul>
     </body>
 </html>
