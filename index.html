@@ -1,0 +1,45 @@
+<html>
+    <script>
+        class pupil {
+            constructor(name) {
+                this.name = name;
+            }
+        }
+
+        let flip = true;
+
+        let list_names = [];
+
+        let clicky = function () {
+            var text = flip ? "Hello World!" : "Hallo Welt!";
+            flip = !flip;
+            document.getElementById("haha1").innerHTML = text;
+        }
+
+        let submitName = function () {
+            var name = document.getElementById("fname").value;
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(name));
+            document.getElementById("names").appendChild(
+                li
+            );
+        }
+    </script>
+
+    <body>
+        <h1 id="haha1">Hello</h1>
+        <button onclick="clicky()">Click me</button>
+        <br>
+        <br>
+        <form onsubmit="submitName(); return false;">
+            <label for="fname">Name</label><br>
+            <input type="text"id="fname" name="fname"><br>
+            <input type="submit" value="Name eingeben">
+        </form>
+        <br>
+        <br>
+        <ul id="names">
+
+        </ul>
+    </body>
+</html>
