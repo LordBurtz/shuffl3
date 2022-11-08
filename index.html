@@ -8,7 +8,6 @@
         }
 
         let flip = true;
-
         let list_names = [];
 
         let clicky = function () {
@@ -25,15 +24,30 @@
             );
         }
 
+        const deleteLI = function (elem) {
+            elem.closest("li").remove();
+        }
+
+        let appendAndButton = function(ul, content) {
+            var li = document.createElement("li");
+            li.appendChild(document.createTextNode(content));
+            var btn = document.createElement("button")
+            btn.setAttribute("onClick", "deleteLI(this)")
+            btn.textContent = "delete";
+            li.appendChild(btn);
+            document.getElementById(ul).appendChild(li);
+        }
+
         let submitName = function () {
+            if (document.getElementById("fname".value) == "") {return};
             var name = document.getElementById("fname").value;
-            appendUL("names", name)
+            document.getElementById("fname").value = "";
+            appendAndButton("names", name)
             list_names.push(new pupil(name))
         }
 
         const rand = (length) => {return Math.floor(Math.random() * length)};
         
-
         let generate = function ()  {
             var bak = list_names
 
@@ -65,7 +79,7 @@
         <br>
         <form onsubmit="submitName(); return false;">
             <label for="fname">Name</label><br>
-            <input type="text"id="fname" name="fname"><br>
+            <input required='required' type="text"id="fname" name="fname"><br>
             <input type="submit" value="Name eingeben">
         </form>
         <br>
