@@ -21,52 +21,43 @@
       sizes="16x16"
       href="img/favicon-16x16.png"
     />
-    <link rel="manifest" href="/site.webmanifest" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Roboto:300,400,700"
-      rel="stylesheet"
-      type="text/css"
-    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <script type="text/javascript" src="js/shuffle.js"></script>
-  <body>
-    <section class="wrapper">
-      <div id="stars"></div>
-      <div id="stars2"></div>
-      <div id="stars3"></div>
-    </section>
-    <div class="content">
-      <h1 id="title_text">Hello</h1>
-      <div>
-        <button class="button-64" role="button" onclick="clicky()">
-          <span class="text_clickMe">Click me!</span>
-        </button>
+
+  <body> 
+    <div class="root center-column-flex">
+      <div class="title center-column-flex">
+        <h1 id="title_text">Shuffl3</h1>
+        <h2>A Web-App for shuffling random combinations of people</h2>
       </div>
       
-      <div  class="content">
+      <div  class="form-content">
         <form onsubmit="submitName(); return false;">
-          <label class="text_regular" for="fname">Name</label><br />
-          <input
+          <label class="text_regular name-heading" for="fname">Name</label><br />
+          <input class="name-input"
             required="required"
             type="text"
             id="fname"
             name="fname"
           /><br />
-          <input type="submit" value="Name eingeben" />
+          <input type="submit" class="btn submit-btn" value="Enter name" />
         </form>
-        <ul class="text_regular" id="names"></ul>
-    </div>
-        <br />
-        <br />
-        <button id="button_shuffle" class="button-64-shuffle" role="button" onclick="generate()"><span class="text_shuffle">🔀</span></button>
-    </div>
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-    <div    class="content">
+        <div class="names-box" id="names-box-div">
+          <ul class="text_regular names" id="names"></ul>
+        </div>
+        <div class="shuffle-btn-div">
+          <button id="button_shuffle" class="button-64-shuffle shuffle-btn btn" role="button" onclick="generate()"><span class="text_shuffle">🔀</span></button>
+        </div>
+      </div>
+
+    <div class="combinations">
         <h4 id="combinations_text">COMBINATIONS:</h4>
         <p class="text_regular" id="leftover"></p>
         <br />
-        <ul class="text_regular" id="combs"></ul>
+        <div class="comb-box " id="comb-box">
+          <ul class="text_regular names" id="combs"></ul>
+        </div>
     </div>
   </body>
 </html>

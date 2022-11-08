@@ -17,11 +17,15 @@ let clicky = function () {
 let appendUL = function (ul, content) {
   var li = document.createElement("li");
   li.appendChild(document.createTextNode(content));
+  li.setAttribute("class", "name-li")
   document.getElementById(ul).appendChild(li);
 };
 
 const deleteLI = function (elem) {
   elem.closest("li").remove();
+  if (document.getElementById("names").childNodes.length <= 0) {
+    document.getElementById("names-box-div").setAttribute("style", "border-style: none")
+  }
 };
 
 let appendAndButton = function (ul, content) {
@@ -31,6 +35,7 @@ let appendAndButton = function (ul, content) {
   btn.setAttribute("onClick", "deleteLI(this)");
   btn.textContent = "delete";
   li.appendChild(btn);
+  li.setAttribute("class", "name-li");
   document.getElementById(ul).appendChild(li);
 };
 
@@ -38,6 +43,7 @@ let submitName = function () {
   if (document.getElementById("fname".value) == "") {
     return;
   }
+  document.getElementById("names-box-div").setAttribute("style", "border-style: solid")
   var name = document.getElementById("fname").value;
   document.getElementById("fname").value = "";
   appendAndButton("names", name);
@@ -53,6 +59,7 @@ let generate = function () {
 
   document.getElementById("leftover").innerHTML = "";
   document.getElementById("combs").innerHTML = "";
+  document.getElementById("comb-box").setAttribute("style", "border-style: none");
 
   list_names = document.getElementById("names").getElementsByTagName("li");
   var ne = [];
@@ -70,6 +77,7 @@ let generate = function () {
     });
   }
   while (list_names.length >= 2) {
+    document.getElementById("comb-box").setAttribute("style", "border-style: solid");
     var a = list_names[rand(list_names.length)];
     list_names = list_names.filter((item) => {
       return item != a;
