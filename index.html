@@ -1,6 +1,7 @@
 <html>
     <script>
         class pupil {
+            name;
             constructor(name) {
                 this.name = name;
             }
@@ -20,6 +21,7 @@
             var name = document.getElementById("fname").value;
             var li = document.createElement("li");
             li.appendChild(document.createTextNode(name));
+            list_names.push(new pupil(name))
             document.getElementById("names").appendChild(
                 li
             );
