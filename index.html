@@ -35,6 +35,11 @@
         
 
         let generate = function ()  {
+            var bak = list_names
+
+            document.getElementById("leftover").innerHTML = ""
+            document.getElementById("combs").innerHTML = ""
+
             if (list_names.length % 2 == 1) {
                 var random = rand(list_names.length)
                 var leftover = list_names[random]
@@ -49,6 +54,7 @@
                 
                 appendUL("combs", (a.name + " and " + b.name))
             }
+            list_names = bak;
         }
     </script>
 
