@@ -54,6 +54,12 @@ let generate = function () {
   document.getElementById("leftover").innerHTML = "";
   document.getElementById("combs").innerHTML = "";
 
+  list_names = document.getElementById("names").getElementsByTagName("li");
+  var ne = [];
+  for (let i = 0; i < list_names.length; i++) {
+    ne.push(new pupil(list_names[i].firstChild.nodeValue));
+  }
+  list_names = ne;
   if (list_names.length % 2 == 1) {
     var random = rand(list_names.length);
     var leftover = list_names[random];
