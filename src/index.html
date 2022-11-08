@@ -1,0 +1,72 @@
+<html>
+  <head>
+    <title>Shuffl3</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="img/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="img/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="img/favicon-16x16.png"
+    />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,700"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <script type="text/javascript" src="js/shuffle.js"></script>
+  <body>
+    <section class="wrapper">
+      <div id="stars"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
+    </section>
+    <div class="content">
+      <h1 id="title_text">Hello</h1>
+      <div>
+        <button class="button-64" role="button" onclick="clicky()">
+          <span class="text_clickMe">Click me!</span>
+        </button>
+      </div>
+      
+      <div  class="content">
+        <form onsubmit="submitName(); return false;">
+          <label class="text_regular" for="fname">Name</label><br />
+          <input
+            required="required"
+            type="text"
+            id="fname"
+            name="fname"
+          /><br />
+          <input type="submit" value="Name eingeben" />
+        </form>
+        <ul class="text_regular" id="names"></ul>
+    </div>
+        <br />
+        <br />
+        <button id="button_shuffle" class="button-64-shuffle" role="button" onclick="generate()"><span class="text_shuffle">🔀</span></button>
+    </div>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+    <div    class="content">
+        <h4 id="combinations_text">COMBINATIONS:</h4>
+        <p class="text_regular" id="leftover"></p>
+        <br />
+        <ul class="text_regular" id="combs"></ul>
+    </div>
+  </body>
+</html>
